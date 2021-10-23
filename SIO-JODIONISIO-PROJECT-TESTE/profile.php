@@ -74,7 +74,75 @@
         <a href="profile.php"><span class="glyphicon glyphicon-user"></span> profile</a></h1>
         <hr />
         
-        <p class="h4">Another Secure Profile Page</p> 
+        <p class="h4">Another Secure Profile Page</p>
+
+        <input type="text" id="book_search" placeholder="Procurar por livros...">
+        <input type="button" id="book_search_button" name="book_search_button"/>
+        <script>
+            let btn = document.getElementById("book_search_button");
+            btn.addEventListener("click", function (){
+                // console.log("aqui");
+                let text_field = document.getElementById("book_search");
+                let params = 'search=' + text_field.value + '&user_id=' + '<?php print($userRow['user_id']); ?>' ;
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', "./book_query.php?" + params);
+                xhr.onload = function () {
+                    // console.log(this.response);
+                    document.getElementById("books_tbody").innerHTML = this.response;
+                };
+                // console.log("aqui?");
+                xhr.send();
+            });
+
+        </script>
+
+        <table class="table" id="tab_livros">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Livro</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Preço</th>
+            </tr>
+            </thead>
+            <tbody id="books_tbody">
+
+            <?php
+
+            $servername = "localhost";
+            $username = "root";
+            $password = "password";
+            $dbname = "dblogin";
+
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "select * from books where id in (select book from user_books where user = " .  $userRow['user_id']  . ");";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row[0] . "</td>";
+                    echo "<td>" . $row[1] . "</td> ";
+                    echo "<td>" . $row[2] . "</td>";
+                    echo "<td>" . $row[3] . "</td>";
+                    echo "</tr>";
+//                    echo "<script> console.log(" . $row . "); </script>";
+                }
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+            ?>
+            <script>
+
+            </script>
+
+            </tbody>
+        </table>
         
         <p class="blockquote-reverse" style="margin-top:200px;">
     Aveiro University - SIO 2021 - Safe Web page<br /><br />
