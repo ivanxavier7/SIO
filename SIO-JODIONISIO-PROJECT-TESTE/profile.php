@@ -75,9 +75,12 @@
         <hr />
         
         <p class="h4">Another Secure Profile Page</p>
-
-        <input type="text" id="book_search" placeholder="Procurar por livros...">
-        <input type="button" id="book_search_button" name="book_search_button"/>
+        <form action="" class="form-inline">
+        <input type="text" id="book_search" class="form-control rounded" placeholder="Procurar por livros...">
+        <!--<input type="button" id="book_search_button" name="book_search_button"/>-->
+        <a type="button" name="book_search_button" id="book_search_button" class="btn btn-primary" href="#" role="button">Search</a>
+        </form>
+        
         <script>
             let btn = document.getElementById("book_search_button");
             btn.addEventListener("click", function (){
@@ -111,7 +114,7 @@
 
             $servername = "localhost";
             $username = "root";
-            $password = "password";
+            $password = ""; //you can put password into it if your mysq server has a password
             $dbname = "dblogin";
 
             $conn = new mysqli($servername, $username, $password, $dbname);

@@ -8,7 +8,7 @@ $user_id = $_GET["user_id"];
 $livro = $_GET["search"];
 $servername = "localhost";
 $username = "root";
-$password = "password";
+$password = ""; //you can put password into it if your mysq server has a password
 $dbname = "dblogin";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

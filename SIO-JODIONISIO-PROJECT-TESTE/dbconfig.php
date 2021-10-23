@@ -4,7 +4,7 @@ class Database
     private $host = "localhost";
     private $db_name = "dblogin";
     private $username = "root";
-    private $password = "password";
+    private $password = ""; //you can put password into it
     public $conn;
 
     public function dbConnection()
