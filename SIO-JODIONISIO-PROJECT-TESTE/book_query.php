@@ -16,7 +16,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "select * from books where id in (select book from user_books where user = " . $user_id . ") and id = " . $livro .";";
+$sql = "select * from books where id =  $livro and id in (select book from user_books where user =  $user_id ) ;";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
