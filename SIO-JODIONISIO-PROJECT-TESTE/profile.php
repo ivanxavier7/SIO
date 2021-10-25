@@ -37,7 +37,7 @@
 
             <?php
             $connection = mysqli_connect('localhost', 'root', '', 'dblogin');
-            $query = "select * from books where id in (select book from user_books where user = " .  $userRow['user_id']  . ");";
+            $query = "select * from books where user_id in (select user_id from users where user_id = " .  $userRow['user_id']  . ");";
             $result = mysqli_query($connection, $query);
             
             if(!$result) {
@@ -51,10 +51,10 @@
                 while ($row = mysqli_fetch_array($result)) {
                     echo "<tr>";
                     echo "<td>" . $row[0] . "</td>";
-                    echo "<td>" . $row[1] . "</td> ";
+                    echo "<td>" . $row[1] . "</td>";
                     echo "<td>" . $row[2] . "</td>";
                     echo "<td>" . $row[3] . "</td>";
-                    echo "<td>" . "<input type=submit value='Editar' name='$row[0]'>" . "</td>";
+                    echo "<td>" . "<input type=submit class='btn btn-primary' value='Editar' name='$row[4]'>" . "</td>";
                     echo "</tr>";
 //                    echo "<script> console.log(" . $row . "); </script>";
                 }

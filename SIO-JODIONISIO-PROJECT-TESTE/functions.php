@@ -51,9 +51,10 @@ function AddBook() {
         $name = $_POST['name'];
         $author = $_POST['author'];
         $price = $_POST['price'];
+        $id_user = $userRow['user_id'];
 
-        $query = "INSERT INTO books(name, author, price) ";
-        $query .= "VALUES ('$name', '$author', '$price')";
+        $query = "INSERT INTO books(name, author, price, user_id) ";
+        $query .= "VALUES ('$name', '$author', '$price', '$id_user')";
         $result = mysqli_query($connection, $query);
 /*
         echo "TESTE - " . $userRow['user_id'];
