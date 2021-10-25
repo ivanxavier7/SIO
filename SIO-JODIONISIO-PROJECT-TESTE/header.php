@@ -72,7 +72,7 @@
 
     <div class="container">
 
-        <label class="h5">welcome : <?php print($userRow['user_name']); ?></label>
+        <label class="h5">Welcome : <?php print($userRow['user_name']); ?></label>
         <hr/>
 
         <h1>
