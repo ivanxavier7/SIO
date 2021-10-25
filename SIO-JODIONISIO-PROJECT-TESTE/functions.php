@@ -68,7 +68,7 @@ function AddBook() {
         } else {
             echo '<div class="alert alert-success" role="alert">'
             . 'Successfully added'
-            . '</div>";';
+            . '</div>';
         }
     }
 }

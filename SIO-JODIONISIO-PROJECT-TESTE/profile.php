@@ -54,6 +54,7 @@
                     echo "<td>" . $row[1] . "</td> ";
                     echo "<td>" . $row[2] . "</td>";
                     echo "<td>" . $row[3] . "</td>";
+                    echo "<td>" . "<input type=submit value='Editar' name='$row[0]'>" . "</td>";
                     echo "</tr>";
 //                    echo "<script> console.log(" . $row . "); </script>";
                 }
