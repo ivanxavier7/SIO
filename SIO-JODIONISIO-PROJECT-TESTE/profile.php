@@ -56,7 +56,7 @@
                     <td><input style="border-width:0px;border:none;" type="text" name='name_book' value='<?php echo $row[1] ?>' readonly="readonly"></td>
                     <td><input style="border-width:0px;border:none;" type="text" name='author_book' value='<?php echo $row[2] ?>' readonly="readonly"></td>
                     <td><input style="border-width:0px;border:none;" type="number" name='price_book' value='<?php echo $row[3] ?>' readonly="readonly"></td>
-                    <td><input type=submit class='btn btn-primary' value='Editar' name='submit'></td>
+                    <td><input type=submit class='btn btn-primary' value='Editar' name='submit1'></td>
                     </tr>
                     </form>
                     <?php

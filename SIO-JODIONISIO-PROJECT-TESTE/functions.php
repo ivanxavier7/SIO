@@ -77,13 +77,13 @@ function AddBook() {
 function EditBook() {
     global $connection;
     if(isset($_POST['submit'])) {
-        $id_book = $_POST['id_book'];
-        $name_book = $_POST['name_book'];
-        $author_book = $_POST['author_book'];
-        $price_book = $_POST['price_book'];
-
+        $id = $_POST['id_book'];
+        $name = $_POST['name_book'];
+        $author = $_POST['author_book'];
+        $price = $_POST['price_book'];
+        //echo $id_book, $name_book, $author_book, $price_book;
         $query = "UPDATE books SET";
-        $query .= "id=id, name='$name_book', author='$author_book', price='$price_book', user_id=user_id WHERE id = '$id_book'";
+        $query .= " name='$name', author='$author', price='$price' WHERE id = '$id'";
         $result = mysqli_query($connection, $query);   
         
         if(!$result) {
@@ -93,6 +93,7 @@ function EditBook() {
             . 'Successfully Edited!'
             . '</div>';
         }
+        
     }
 }
 
