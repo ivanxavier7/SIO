@@ -1,4 +1,5 @@
 <?php include "header.php"; ?>
+<?php include "db.php"; ?>
 
 <table class="table" id="tab_livros">
         <thead>
@@ -12,7 +13,8 @@
         <tbody id="books_tbody">
 
                 <?php
-                $connection = mysqli_connect('localhost', 'root', '', 'dblogin');
+//                $connection = mysqli_connect('localhost', 'root', 'password', 'dblogin');
+                global $connection;
                 $query = "select * from books;";
                 $result = mysqli_query($connection, $query);
 

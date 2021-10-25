@@ -1,4 +1,7 @@
-<?php include "header.php";?>     
+<?php include "header.php";?>
+<?php include "db.php";?>
+
+
         <p class="h4">Another Secure Profile Page</p>
         <form action="" class="form-inline">
         <input type="text" id="book_search" class="form-control rounded" placeholder="Procurar por livros...">
@@ -36,7 +39,8 @@
             <tbody id="books_tbody">
 
             <?php
-            $connection = mysqli_connect('localhost', 'root', '', 'dblogin');
+//            $connection = mysqli_connect('localhost', 'root', '', 'dblogin');
+            global $connection;
             $query = "select * from books where user_id in (select user_id from users where user_id = " .  $userRow['user_id']  . ");";
             $result = mysqli_query($connection, $query);
             
