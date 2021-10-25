@@ -76,7 +76,7 @@ function AddBook() {
 
 function EditBook() {
     global $connection;
-    if(isset($_POST['submit'])) {
+    if(isset($_POST['submit2'])) {
         $id = $_POST['id_book'];
         $name = $_POST['name_book'];
         $author = $_POST['author_book'];

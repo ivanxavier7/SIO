@@ -29,7 +29,7 @@ if(isset($_POST['submit1'])) {
                 <input type="number" step="any" name="price_book" id="" class="form-control"aria-describedby="helpId" value="<?php echo $price ?>">
               </div>
               
-              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" name="submit2" class="btn btn-primary">Submit</button>
               
           </form>
       </div>
