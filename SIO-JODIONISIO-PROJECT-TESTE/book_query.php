@@ -21,12 +21,14 @@ $livro = $_GET["search"];
 //    die("Connection failed: " . $conn->connect_error);
 //}
 
-$sql = "select * from books where id = $livro and id in (select book from user_books where user = $user_id ) ;";
+$sql = "select * from books where id = $livro and user_id = $user_id ;";
 $result = mysqli_query($connection, $sql);;
+
+echo $livro;
 
 if ($result->num_rows > 0) {
     while ($row = mysqli_fetch_array($result)) {
-        echo print_r($row);
+//        echo print_r($row);
         echo "<tr>";
         echo "<td>" . $row[0] . "</td>";
         echo "<td>" . $row[1] . "</td>";
