@@ -49,14 +49,17 @@
             if ($result->num_rows > 0) {
               print_r($userRow['user_id']);
                 while ($row = mysqli_fetch_array($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $row[0] . "</td>";
-                    echo "<td>" . $row[1] . "</td>";
-                    echo "<td>" . $row[2] . "</td>";
-                    echo "<td>" . $row[3] . "</td>";
-                    echo "<td>" . "<input type=submit class='btn btn-primary' value='Editar' name='$row[4]'>" . "</td>";
-                    echo "</tr>";
-//                    echo "<script> console.log(" . $row . "); </script>";
+                    ?>
+                    <form action="book_edit.php" method="POST">
+                    <tr>
+                    <td><input style="border-width:0px;border:none;"type="number" name='id_book' value='<?php echo $row[0] ?>' readonly="readonly"></td>
+                    <td><input style="border-width:0px;border:none;" type="text" name='name_book' value='<?php echo $row[1] ?>' readonly="readonly"></td>
+                    <td><input style="border-width:0px;border:none;" type="text" name='author_book' value='<?php echo $row[2] ?>' readonly="readonly"></td>
+                    <td><input style="border-width:0px;border:none;" type="number" name='price_book' value='<?php echo $row[3] ?>' readonly="readonly"></td>
+                    <td><input type=submit class='btn btn-primary' value='Editar' name='submit'></td>
+                    </tr>
+                    </form>
+                    <?php
                 }
             } else {
                 echo "0 results";

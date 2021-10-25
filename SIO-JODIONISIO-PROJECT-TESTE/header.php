@@ -79,6 +79,5 @@
             <a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a> &nbsp;
             <a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile</a> &nbsp;
             <a href="book_add.php"><span class="glyphicon glyphicon-plus"></span> Add</a> &nbsp;
-            <a href="book_edit.php"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
         </h1>
         <hr/>

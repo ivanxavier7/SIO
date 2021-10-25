@@ -68,7 +68,29 @@ function AddBook() {
             die('Query FAILED' . mysqli_error($connection, $query));
         } else {
             echo '<div class="alert alert-success" role="alert">'
-            . 'Successfully added'
+            . 'Successfully Added!'
+            . '</div>';
+        }
+    }
+}
+
+function EditBook() {
+    global $connection;
+    if(isset($_POST['submit'])) {
+        $id_book = $_POST['id_book'];
+        $name_book = $_POST['name_book'];
+        $author_book = $_POST['author_book'];
+        $price_book = $_POST['price_book'];
+
+        $query = "UPDATE books SET";
+        $query .= "id=id, name='$name_book', author='$author_book', price='$price_book', user_id=user_id WHERE id = '$id_book'";
+        $result = mysqli_query($connection, $query);   
+        
+        if(!$result) {
+            die('Query FAILED' . mysqli_error($connection, $query));
+        } else {
+            echo '<div class="alert alert-success" role="alert">'
+            . 'Successfully Edited!'
             . '</div>';
         }
     }
