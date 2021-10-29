@@ -24,7 +24,6 @@ $livro = $_GET["search"];
 $sql = "select * from books where id = $livro and user_id = $user_id ;";
 $result = mysqli_query($connection, $sql);;
 
-echo $livro;
 
 if ($result->num_rows > 0) {
     while ($row = mysqli_fetch_array($result)) {
@@ -38,6 +37,10 @@ if ($result->num_rows > 0) {
         echo "</tr>";
     }
 }
+
+//echo "Procurou por: " . $livro;                                                         //Não protegido
+echo "Procurou por: " . htmlspecialchars($livro, ENT_QUOTES, 'UTF-8');      //Protegido
+
 //else {
 //    echo "0 results" . $user_id . $livro;
 //}
