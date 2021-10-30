@@ -38,7 +38,8 @@ if ($result->num_rows > 0) {
     }
 }
 
-//echo "Procurou por: " . $livro;                                                         //Não protegido
+echo "Procurou por: " . $livro;                                                         //Não protegido
+echo "\n";
 echo "Procurou por: " . htmlspecialchars($livro, ENT_QUOTES, 'UTF-8');      //Protegido
 
 //else {
