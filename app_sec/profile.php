@@ -34,7 +34,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Livro</th>
                 <th scope="col">Autor</th>
-                <th scope="col">Preço</th>
+                <th scope="col">Preço (€)</th>
             </tr>
             </thead>
             <tbody id="books_tbody">
