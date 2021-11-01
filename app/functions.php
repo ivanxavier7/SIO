@@ -127,4 +127,18 @@ function getData() {
     }
 }
 
+function loadCookies() {
+    $expiration = time() + (60 * 60 * 24 * 7) ; // (Tempo desde 1970-01-01 em segundos + (segundos * minutos * horas * dias)) = semanas
+    if(!empty($_POST["remember"])) {
+        echo $_POST["txt_uname_email"] . $_POST["txt_password"] . "TESTE";
+        setcookie ("username",$_POST["txt_uname_email"],$expiration);
+        setcookie ("password",password_hash($_POST["txt_password"], PASSWORD_DEFAULT),$expiration);
+        echo "Cookies Set Successfuly!";
+    } else {
+        setcookie("username","");
+        setcookie("password","");
+        echo "Cookies Not Set!";
+    }
+}
+
 ?>

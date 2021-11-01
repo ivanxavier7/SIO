@@ -2,6 +2,34 @@
 <?php include "db.php"; ?>
 <?php include "functions.php"; ?>
 
+<div class="alert alert-info center-block" style="width: 40%;" role="alert">
+        <label class="h4"><b>Session Data</b> <p>Username: <?php print($userRow['user_name']); ?></p></label>
+</div>
+<div class="alert alert-danger center-block" style="width: 40%;" role="alert">
+        <b>Cookie Data</b> 
+        <p>
+        Username: 
+        <?php
+        if(isset($_COOKIE['username'])){
+        $username = $_COOKIE['username'];
+        echo "" . $username ;
+        }   else {
+        $username = "";
+        }
+        ?>
+        </p>
+        <p>
+        Password: 
+        <?php
+        if(isset($_COOKIE['password'])){
+        $password = $_COOKIE['password'];
+        echo "" . $password ;
+        }   else {
+        $password = "";
+        }
+        ?></p>
+</div>
+
 <table class="table" id="tab_livros">
         <thead>
                 <tr>

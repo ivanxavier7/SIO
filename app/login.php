@@ -1,4 +1,5 @@
 <?php
+include 'functions.php';
 session_start();
 require_once("class.user.php");
 $login = new USER();
@@ -22,6 +23,16 @@ if(isset($_POST['btn-login']))
 	{
 		$error = "Wrong Details !";
 	}
+}
+
+$expiration = time() + (60 * 60 * 24 * 7) ; // (Tempo desde 1970-01-01 em segundos + (segundos * minutos * horas * dias)) = semanas
+if(!empty($_POST["remember"])) {
+    echo $_POST["txt_uname_email"] . $_POST["txt_password"] . "TESTE";
+	setcookie ("username",$_POST["txt_uname_email"],$expiration);
+	setcookie ("password",$_POST["txt_password"],$expiration);
+} else {
+	setcookie("username","");
+	setcookie("password","");
 }
 ?>
 
@@ -88,6 +99,15 @@ if(isset($_POST['btn-login']))
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
+					</div>
+
+					<div class="form-check form-switch d-flex justify-content-center">
+						<div>
+							<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="remember">
+						</div>
+						<div>
+							<label class="form-check-label" for="flexSwitchCheckDefault">Remember me</label>
+						</div>
 					</div>
 
 					<div class="container-login100-form-btn">
