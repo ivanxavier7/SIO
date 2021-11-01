@@ -127,4 +127,43 @@ function getData() {
     }
 }
 
+function loadCookies() {
+    $expiration = time() + (60 * 60 * 24 * 7) ; // (Tempo desde 1970-01-01 em segundos + (segundos * minutos * horas * dias)) = semanas
+    if(!empty($_POST["remember"])) {
+        echo $_POST["txt_uname_email"] . $_POST["txt_password"] . "TESTE";
+        setcookie ("username",$_POST["txt_uname_email"],$expiration);
+        setcookie ("password",password_hash($_POST["txt_password"], PASSWORD_DEFAULT),$expiration);
+        echo "Cookies Set Successfuly!";
+    } else {
+        setcookie("username","");
+        setcookie("password","");
+        echo "Cookies Not Set!";
+    }
+}
+
+function encryptString($string) { 
+    $ciphering = "AES-128-CTR";
+    //$iv_length = openssl_cipher_iv_length($ciphering);
+    $options = 0;
+    $encryption_iv = '8437158652544936';
+    $encryption_key = "ChaveParaEncriptar";
+    $encryption = openssl_encrypt($string, $ciphering,
+                $encryption_key, $options, $encryption_iv);
+    //echo "Encrypted String: " . $encryption . "\n";  
+    return $encryption;
+}
+
+function decryptString($string) { 
+    $ciphering = "AES-128-CTR";
+    //$iv_length = openssl_cipher_iv_length($ciphering);
+    $options = 0; 
+    $decryption_iv = '8437158652544936';
+    $decryption_key = "ChaveParaEncriptar"; 
+    $decryption=openssl_decrypt ($string, $ciphering, 
+            $decryption_key, $options, $decryption_iv);
+    //echo "Decrypted String: " . $decryption;
+    return $decryption;    
+    }
+
+
 ?>
